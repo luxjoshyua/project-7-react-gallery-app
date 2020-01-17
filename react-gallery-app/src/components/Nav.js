@@ -1,13 +1,19 @@
 import React from "react";
 
-const Nav = () => {
+const Nav = (props) => {
     return (
         <nav class="main-nav">
             <ul>
-                {/* make these links dynamic */}
-                <li><a href='#'>Cats</a></li>
-                <li><a href='#'>Dogs</a></li>
-                <li><a href='#'>Computers</a></li>
+                {/* make these links dynamic - tags */}
+                <li>
+                    <a href='#'>Cats</a>
+                </li>
+                <li>
+                    <a href='#'>Dogs</a>
+                    </li>
+                <li>
+                    <a href='#'>Computers</a>
+                </li>
             </ul>
         </nav>
     )

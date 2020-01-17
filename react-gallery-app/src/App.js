@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './components/Nav';
 import NotFound from './components/NotFound';
-// import Photo from './components/Photo';
 import apiKey from './config';
 import PhotoList from './components/PhotoList'; 
 import SearchForm from './SearchForm';
@@ -28,8 +27,11 @@ export default class App extends Component {
   }
 
   // Request the data - use native Fetch API
+  /**
+   * ==== Requesting the data ====
+   */
   componentDidMount() {
-    fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=labrador&per_page=&format=json&nojsoncallback=1`)
+    fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=labrador&per_page=24&format=json&nojsoncallback=1`)
     // make JSON data available to the app
       .then(response => response.json() )
       .then(responseData => {
@@ -69,7 +71,7 @@ export default class App extends Component {
           {/* <Nav /> */}
           
          
-          {/* <Photo /> */}
+          <PhotoList data={photos} />
 
         
       </div>
