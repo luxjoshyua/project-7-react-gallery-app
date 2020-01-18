@@ -70,8 +70,8 @@ export default class App extends Component {
           
           {/* <Nav /> */}
           
-         
-          <PhotoList data={photos} />
+          {/* data={photos} */}
+          <PhotoList  />
 
         
       </div>
