@@ -3,6 +3,10 @@ import Photo from "./Photo";
 import NoPhoto from './NoPhoto'; 
 
 // photo component needs to display li and img elements
+/**
+ * ==== Build your app components ====
+ * PhotoList component is what holds each photo fetched in the Photo component
+ */
 const PhotoList = (props) => {
 
     const results = props.data;

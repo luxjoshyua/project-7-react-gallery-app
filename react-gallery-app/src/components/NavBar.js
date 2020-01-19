@@ -1,4 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
+import {
+    NavLink,
+    useParams,
+} from "react-router-dom"; 
 
 const Nav = (props) => {
     return (
