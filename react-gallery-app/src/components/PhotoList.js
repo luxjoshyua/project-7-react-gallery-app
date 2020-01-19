@@ -5,39 +5,25 @@ import NoPhoto from './NoPhoto';
 // photo component needs to display li and img elements
 const PhotoList = (props) => {
 
-    console.log(props);
-
-
-    return null;
-
     const results = props.data;
-
-    console.log(results);
-
     let photos;
 
     if (results.length > 0) {
         photos = results.map(photo => 
-            <Photo data={photo} key={photo.id} />);
-            return (
-                <div class="photo-container">
-                    <h2>Results</h2>
-                    <ul>
-                        {photos}    
-                    </ul>
-              </div>
+            <Photo url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} />
             );
         } else {
-        photos = <NoPhoto />;
+            photos = <NoPhoto />;
+        }
+
         return (
-            <div class="photo-container">
-                <h2>Results</h2>
+            <div className="photo-container">
                 <ul>
                     {photos}    
                 </ul>
             </div>
         );
-    }
 }
+
 
 export default PhotoList; 

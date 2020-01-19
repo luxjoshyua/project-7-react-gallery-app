@@ -26,7 +26,6 @@ export default class App extends Component {
     this.performSearch(); 
   }
 
-  // Request the data - use native Fetch API
   /**
    * ==== Requesting the data ====
    */
@@ -57,23 +56,28 @@ export default class App extends Component {
     
     return (
       <div className="App">
-          {/* <SearchForm /> */}
-    
-        
-          {/* // if the state is loading, render a paragraph, otherwise if loading state is false, render the gif list component */}
-          {/* // (this.state.loading) ? <p>Loading...</p> : <PhotoList data={this.state.photos} /> */}
-
+        <div className="Container">
 
           {/* searchbar at top */}
           {/* <SearchForm /> */}
-        
-          
           {/* <Nav /> */}
-          
-          {/* data={photos} */}
-          <PhotoList  />
-
+    
         
+          
+          {/* // if the state is loading, render a paragraph, otherwise if loading state is false, render the gif list component */}
+          {
+            (this.state.loading)  
+            ? <p>Loading...</p>
+            : <PhotoList data={this.state.photos} />
+          }
+            
+       
+      
+          
+          
+          
+
+          </div>
       </div>
     );
   }
