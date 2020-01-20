@@ -6,14 +6,14 @@ class SearchBar extends Component {
         searchText: ''
     }
 
-    onSearchChange = (e) => {
-        this.setState({  searchText: e.target.value }); 
+    onSearchChange = e => {
+        this.setState({ searchText: e.target.value });
     }
-
-    handleSubmit = (e) => {
+  
+    handleSubmit = e => {
         e.preventDefault();
-        this.props.onSearch(this.state.searchText);
-        e.currentTarget.reset(); 
+        this.props.onSearch(this.state.searchText);      
+        e.currentTarget.reset();
     }
 
     render() {
@@ -37,3 +37,5 @@ class SearchBar extends Component {
 }
 
 export default SearchBar;
+
+
