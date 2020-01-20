@@ -4,23 +4,23 @@ import {
     useParams,
 } from "react-router-dom"; 
 
-const Nav = (props) => {
+const NavBar = (props) => {
     return (
         <nav class="main-nav">
             <ul>
                 {/* make these links dynamic - tags */}
                 <li>
-                    <a href='#'>Cats</a>
+                    <NavLink to='/dogs'>Dogs</NavLink>
                 </li>
                 <li>
-                    <a href='#'>Dogs</a>
-                    </li>
+                    <NavLink to='/computers'>Computers</NavLink>
+                </li>
                 <li>
-                    <a href='#'>Computers</a>
+                    <NavLink to='/surfing'>Surfing</NavLink>
                 </li>
             </ul>
         </nav>
     )
 }
 
-export default Nav; 
+export default NavBar; 

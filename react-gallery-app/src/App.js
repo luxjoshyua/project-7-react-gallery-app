@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import apiKey from './config';
+
 import './App.css';
 import Nav from './components/NavBar';
 import NotFound from './components/NotFound';
-import apiKey from './config';
+
 import PhotoList from './components/PhotoList'; 
-import SearchForm from './SearchForm';
-import { BrowserRouter } from 'react-router-dom';
+import SearchBar from './components/SearchBar';
+import { BrowserRouter, Route, Switch, useParams } from 'react-router-dom';
 
 
 
@@ -57,46 +58,34 @@ export default class App extends Component {
     
     return (
       <BrowserRouter>
-      <div className="App">
-        <div className="Container">
+        <div className="App">
+          <div className="Container">
 
-          {/* searchbar at top */}
-            <SearchForm onSearch={this.performSearch} />
-            <Nav />
-
-
-
-          {/* setup the routes */}
-          <Switch>
-
-            {/* setup the route, say which component to render */}
-            <Route exact path="/" />
-            <Route path="/dogs" />
-            <Route path="/computers" />
-            <Route path="/surfing" />
-            
-            {/* add the not found component */}
-            <Route component={NotFound} />
-
-
-          </Switch>
-    
-        
-          
-            {/* // if the state is loading, render a paragraph, otherwise if loading state is false, render the gif list component */}
-            {
-              (this.state.loading)  
-              ? <p>Loading...</p>
-              : <PhotoList data={this.state.photos} />
-            }
-              
-       
-            </div>
-        </div>
+            {/* searchbar at top */}
+              <SearchBar onSearch={this.performSearch} />
+            {/* Navigation below the searchbar */}
+              <Nav />
+            {/* setup the routes */}
+            <Switch>
+              {/* setup the route, say which component to render */}
+              <Route exact path="/" />
+              <Route path="/dogs" />
+              <Route path="/computers" />
+              <Route path="/surfing" />
+              {/* add the not found component */}
+              <Route component={NotFound} />
+            </Switch>
+              {/* // if the state is loading, render a paragraph, otherwise if loading state is false, render the gif list component */}
+              {
+                (this.state.loading)  
+                ? <p>Loading...</p>
+                : <PhotoList data={this.state.photos} />
+              }
+              </div>
+          </div>
       </BrowserRouter>
     );
   }
-
 }
 
 
