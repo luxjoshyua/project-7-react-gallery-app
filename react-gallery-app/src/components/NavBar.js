@@ -6,7 +6,7 @@ import {
 
 const NavBar = (props) => {
     return (
-        <nav class="main-nav">
+        <nav className="main-nav">
             <ul>
                 {/* make these links dynamic - tags */}
                 <li>

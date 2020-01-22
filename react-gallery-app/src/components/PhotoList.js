@@ -1,6 +1,6 @@
 import React from "react";
 import Photo from "./Photo"; 
-import NoPhoto from './NoPhoto'; 
+import NotFound from "./NotFound";
 
 // photo component needs to display li and img elements
 /**
@@ -9,25 +9,26 @@ import NoPhoto from './NoPhoto';
  */
 const PhotoList = (props) => {
 
-    const results = props.data;
-    let photos;
+const results = props.photos;
+let photos;
 
-    if (results.length > 0) {
-        photos = results.map(photo => 
-            <Photo url={`https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`} key={photo.id} />
-            );
-        } else {
-            photos = <NoPhoto />;
-        }
+if (results.length > 0) {
+    photos = results.map(photos => 
+        <Photo url={`https://farm${photos.farm}.staticflickr.com/${photos.server}/${photos.id}_${photos.secret}.jpg`} key={photos.id} />
+    ); 
+    } else {
+        photos = <NotFound />
+    }
 
-        return (
-            <div className="photo-container">
-                <ul>
-                    {photos}    
-                </ul>
-            </div>
-        );
-}
+    return (
+        <div className="photo-container">
+            <h2>Image results for: {props.title}</h2>
+            <ul className="photo-list">
+                {photos}
+            </ul>
+        </div>
+    )
+};
 
 
 export default PhotoList; 
