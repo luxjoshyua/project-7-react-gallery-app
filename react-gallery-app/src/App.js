@@ -15,8 +15,6 @@ import {
 } from 'react-router-dom';
 
 
-
-
 class App extends Component {
 
   constructor() {
@@ -29,7 +27,6 @@ class App extends Component {
         computerPhotos: [],
         surfingPhotos: [],
         loading: true
-
       };
   }
 
@@ -75,13 +72,18 @@ class App extends Component {
       });
   }
 
-  performSearch = (query) => {
+  performSearch = (query = 'dogs') => {
+    
+    this.setState({
+      loading:true
+    })
+
     axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${query}&per_page=24&format=json&nojsoncallback=1`)
       .then(response => {
         this.setState({
           photos: response.data.photos.photo,
           loading: false
-        })
+        });
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error);
@@ -89,36 +91,37 @@ class App extends Component {
   }
 
  
-
   // render the parent App
   render() {
 
     // check what the API is returning
     // trying to log each object, each object should be a separate photo
-    console.log(this.state.photos, "Im here"); 
+    // console.log(this.state.photos, "Im here"); 
     
     return (
       <BrowserRouter>
-
           <div className="Container">
 
             {/* searchbar at top */}
-              <SearchBar onSearch={this.performSearch} />
-
+            <SearchBar onSearch={this.performSearch} searchText={this.state.searchText} />
 
             {/* Navigation below the searchbar */}
-            <Nav />
+            <Nav onClick={this.performSearch} />
               {     
-                (this.state.loading)  
-                ? <p>Loading...</p>
-                : 
+                // (this.state.loading)  
+                // ? <p>Loading...</p>
+                // : 
                 // <PhotoList data={this.state.photos} />
                 <Switch>
-                  {/* setup the route, say which component to render */}
-                  <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>} />
+                  <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
                   <Route path="/dogs" render={() => <PhotoList photos={this.state.dogPhotos}/>}/>
                   <Route path="/computers" render={() => <PhotoList photos={this.state.computerPhotos}/>} />
                   <Route path="/surfing" render={() => <PhotoList photos={this.state.surfingPhotos}/>} />
+                  {
+                    (this.state.loading)
+                    ? <p>Loading...</p>
+                    : <Route path="/search/:query" render={ () => <PhotoList data={this.state.searchPhotos} loading={this.state.loading} /> } />
+                  }
                   {/* add the not found component */}
                   <Route component={NotFound} />
                 </Switch>
@@ -128,7 +131,5 @@ class App extends Component {
     );
   }
 }
-
-
 
 export default App;

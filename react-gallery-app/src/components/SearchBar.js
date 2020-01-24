@@ -2,18 +2,28 @@ import React, {Component} from "react";
 
 class SearchBar extends Component {
 
-    state = {
-        searchText: ''
-    }
-
+  constructor(props) {
+      super(props);
+      this.state = { searchText: '' }; 
+  }
     onSearchChange = e => {
         this.setState({ searchText: e.target.value });
     }
   
     handleSubmit = e => {
         e.preventDefault();
-        this.props.onSearch(this.state.searchText);      
-        e.currentTarget.reset();
+        // this.query.value is undefined
+        
+        this.props.onSearch(this.state.searchText, 'results'); 
+        // console.log(this.state.searchText);
+
+        // let path = `/search/${this.state.searchText}`;
+        
+        
+        // this.props.history.push(path);
+
+        // e.currentTarget.reset();
+      
     }
 
     render() {
