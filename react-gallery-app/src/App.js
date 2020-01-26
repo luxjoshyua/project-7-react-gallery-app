@@ -7,7 +7,7 @@ import Nav from './components/NavBar';
 import NotFound from './components/NotFound';
 
 import PhotoList from './components/PhotoList'; 
-import SearchBar from './components/SearchBar';
+import SearchForm from './components/SearchForm';
 import { 
   BrowserRouter, 
   Route, 
@@ -26,7 +26,8 @@ class App extends Component {
         dogPhotos: [],
         computerPhotos: [],
         surfingPhotos: [],
-        loading: true
+        loading: true,
+        queryState: ""
       };
   }
 
@@ -61,15 +62,15 @@ class App extends Component {
         });
       
       axios.get(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=surfing&per_page=24&format=json&nojsoncallback=1`)
-      .then(response => {
-        this.setState({
-          surfingPhotos: response.data.photos.photo,
-          loading: false
+        .then(response => {
+          this.setState({
+            surfingPhotos: response.data.photos.photo,
+            loading: false
+          })
         })
-      })
-      .catch(error => {
-        console.log('Error fetching and parsing data', error); 
-      });
+        .catch(error => {
+          console.log('Error fetching and parsing data', error); 
+        });
   }
 
   performSearch = (query = 'dogs') => {
@@ -94,35 +95,24 @@ class App extends Component {
   // render the parent App
   render() {
 
-    // check what the API is returning
-    // trying to log each object, each object should be a separate photo
-    // console.log(this.state.photos, "Im here"); 
-    
     return (
       <BrowserRouter>
           <div className="Container">
+          {/* searchText={this.state.searchText} */}
+          <Route render={(props) => <SearchForm onSearch={this.performSearch} loading={this.state.loading}  {...props} /> } />
 
-            {/* searchbar at top */}
-            <SearchBar onSearch={this.performSearch} searchText={this.state.searchText} />
-
-            {/* Navigation below the searchbar */}
-            <Nav onClick={this.performSearch} />
+            {/* Navigation below the SearchForm */}
+            <Nav onSearch={this.performSearch} />
               {     
-                // (this.state.loading)  
-                // ? <p>Loading...</p>
-                // : 
-                // <PhotoList data={this.state.photos} />
+                (this.state.loading)  
+                ? 
+                <h1>Loading...</h1>
+                :
                 <Switch>
-                  <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
+                  <Route path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
                   <Route path="/dogs" render={() => <PhotoList photos={this.state.dogPhotos}/>}/>
                   <Route path="/computers" render={() => <PhotoList photos={this.state.computerPhotos}/>} />
                   <Route path="/surfing" render={() => <PhotoList photos={this.state.surfingPhotos}/>} />
-                  {
-                    (this.state.loading)
-                    ? <p>Loading...</p>
-                    : <Route path="/search/:query" render={ () => <PhotoList data={this.state.searchPhotos} loading={this.state.loading} /> } />
-                  }
-                  {/* add the not found component */}
                   <Route component={NotFound} />
                 </Switch>
               }
