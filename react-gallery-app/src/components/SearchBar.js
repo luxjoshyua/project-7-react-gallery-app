@@ -6,25 +6,34 @@ class SearchBar extends Component {
       super(props);
       this.state = { searchText: '' }; 
   }
+
     onSearchChange = e => {
         this.setState({ searchText: e.target.value });
     }
   
     handleSubmit = e => {
         e.preventDefault();
-        // this.query.value is undefined
         
-        this.props.onSearch(this.state.searchText, 'results'); 
-        // console.log(this.state.searchText);
+        let query = this.state.searchText;
+        let path = `/search/${query}`;
+        this.props.history.push(path);
+        this.props.onSearch(this.state.searchText);
+        e.currentTarget.reset(); 
+        
 
+
+
+
+
+
+        // this.props.onSearch(this.state.searchText, 'results'); 
         // let path = `/search/${this.state.searchText}`;
-        
-        
-        // this.props.history.push(path);
-
+        // console.log(this.props);
+        // console.log(this.props.history); 
+        // this.props.history.push(path);   
         // e.currentTarget.reset();
       
-    }
+    };  
 
     render() {
         return (
