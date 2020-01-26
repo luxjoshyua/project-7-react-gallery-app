@@ -99,7 +99,7 @@ class App extends Component {
       <BrowserRouter>
           <div className="Container">
           {/* searchText={this.state.searchText} */}
-          <Route render={(props) => <SearchForm onSearch={this.performSearch} loading={this.state.loading}  {...props} /> } />
+          <Route render={(props) => <SearchForm onSearch={this.performSearch} loading={this.state.loading} {...props} /> } />
 
             {/* Navigation below the SearchForm */}
             <Nav onSearch={this.performSearch} />
@@ -109,7 +109,7 @@ class App extends Component {
                 <h1>Loading...</h1>
                 :
                 <Switch>
-                  <Route path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
+                  <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
                   <Route path="/dogs" render={() => <PhotoList photos={this.state.dogPhotos}/>}/>
                   <Route path="/computers" render={() => <PhotoList photos={this.state.computerPhotos}/>} />
                   <Route path="/surfing" render={() => <PhotoList photos={this.state.surfingPhotos}/>} />

@@ -93,7 +93,25 @@ input {
   width: 100%;
 }
 
-@media only screen and (max-width: 767px)  {
+/* styling for not found unappy icon */
+.photo-container ul .unhappy-icon img {
+  max-width: 260px;
+  height: 100%;
+  overflow: visible;
+  margin: 0 auto;
+  transform: none;
+  transition: none;
+}
+
+.photo-container .not-found {
+  height: 100%;
+}
+
+.photo-container .not-found img {
+  max-width: 320px;
+}
+
+@media only screen and (max-width: 767px) {
   body {
     padding-top: 2em;
   }
@@ -103,7 +121,7 @@ input {
   }
 }
 
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 768px) {
   body {
     padding-top: 4em;
   }
@@ -117,7 +135,7 @@ input {
     display: flex;
     justify-content: center;
   }
-  
+
   .main-nav li {
     margin: 10px;
     width: 100px;
