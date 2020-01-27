@@ -5,7 +5,6 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   color: #000;
-  background: rgb(238,174,202);
   background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
@@ -16,6 +15,11 @@ h2 {
   color: #fff;
   font-weight: 400;
   letter-spacing: 1px;
+}
+
+h3 {
+  color: #fff;
+  font-weight: 400;
 }
 
 ul {
@@ -42,6 +46,10 @@ a {
   cursor: pointer;
 }
 
+.search-form button:hover {
+  opacity: .6;
+}
+
 input {
   font-size: 1em;
   width: 100%;
@@ -51,6 +59,7 @@ input {
   border-right: none;
   border-radius: 0.35em 0 0 0.35em;
   outline: none;
+  color: #fff;
 }
 
 input::placeholder {
@@ -71,8 +80,7 @@ input::placeholder {
 }
 
 .main-nav .active,
-.main-nav a:hover,
-.search-form button:hover {
+.main-nav a:hover {
   transform: scale(1.2);
   transition: .2s ease-in-out;
 
@@ -91,16 +99,20 @@ input::placeholder {
   height: 165px;
   overflow: hidden;
   margin-bottom: 15px;
+  border: .5px solid #fff;
 }
 
 .photo-container ul img {
   width: 100%;
   transform: scale(1.25);
-  transition: transform 1.25s;
+  /* transition: transform 1.25s; */
+  transition: transform .5s;
 }
 
 .photo-container li:hover img {
-  transform: scale(1.65);
+  /* transform: scale(1.65); */
+  transform: scale(1.2);
+  opacity: .8;
 }
 
 .photo-container .not-found {

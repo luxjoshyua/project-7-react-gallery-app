@@ -5,7 +5,7 @@ import unhappyIcon from "../assets/unhappy-icon.svg";
 const NotFound = (props) => (
     <li className='photo-container not-found unhappy-icon'>
         <img src={unhappyIcon} alt="Unhappy Icon" className="unhappy-img"/>
-        <h3>Sorry, no photos match your search!</h3>
+        <h3>That search did not return any results, please try again.</h3>
   </li>
 );
 
