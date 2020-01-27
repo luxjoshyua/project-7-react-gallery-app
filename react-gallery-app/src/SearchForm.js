@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 
-
-
 export default class SearchForm extends Component {
 
     state = {
@@ -17,8 +15,6 @@ export default class SearchForm extends Component {
         this.props.onSearch(this.query.value);
         e.currentTarget.reset(); 
     }
-
-
 
 }
 

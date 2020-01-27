@@ -1,4 +1,24 @@
+# FullStack JavaScript TechDegree
+# React Gallery App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+* The goal of this project was to start learning React, using the library to create an image gallery app.
+* We specifically had to:
+    * Use JavaScript and JSX to build out the gallery components in a modular fashion.
+    * Use React Router to set up routes for three default topic pages and a search page.
+    * Use the Fetch API or a tool like Axios to fetch data from the Flickr API and use it to display images in your app.
+    * Add logic to handle the search and various requirements of the project.
+    * Add to the supplied CSS to personalize the project.
+
+
+## API Key
+In order to run this React app, you must request a non-commercial API key of your very own from Flickr. 
+You can learn more about this at: https://www.flickr.com/services/apps/create/apply
+
+config.js file format
+`apiKey = 'your api key goes here'`
+
 
 ## Available Scripts
 

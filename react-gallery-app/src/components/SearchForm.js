@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { withRouter } from "react-router-dom"; 
-import searchIcon from "../search-icon.svg"; 
+import searchIcon from "../assets/search-icon.svg"; 
 
 class SearchForm extends Component {
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import external packages first, then 
 import apiKey from './config';
 import axios from 'axios';
 
@@ -98,15 +99,15 @@ class App extends Component {
     return (
       <BrowserRouter>
           <div className="Container">
-          {/* searchText={this.state.searchText} */}
-          <Route render={(props) => <SearchForm onSearch={this.performSearch} loading={this.state.loading} {...props} /> } />
+  
+          <Route render={(props) => <SearchForm onSearch={this.performSearch} loading={this.state.loading} /> } />
 
             {/* Navigation below the SearchForm */}
             <Nav onSearch={this.performSearch} />
               {     
                 (this.state.loading)  
                 ? 
-                <h1>Loading...</h1>
+                <h2>Loading...</h2>
                 :
                 <Switch>
                   <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
