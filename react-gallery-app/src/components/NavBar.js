@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import {
     NavLink,
-    useParams,
+    // useParams,
 } from "react-router-dom"; 
 
 const NavBar = (props) => {
     return (
         <nav className="main-nav">
             <ul>
-                {/* make these links dynamic - tags */}
                 <li>
                     <NavLink to='/dogs'>Dogs</NavLink>
                 </li>

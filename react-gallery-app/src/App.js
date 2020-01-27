@@ -111,6 +111,8 @@ class App extends Component {
                 :
                 <Switch>
                   <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
+                  <Route path="/search" render={() => <PhotoList photos={this.state.photos}/>}  />
+
                   <Route path="/dogs" render={() => <PhotoList photos={this.state.dogPhotos}/>}/>
                   <Route path="/computers" render={() => <PhotoList photos={this.state.computerPhotos}/>} />
                   <Route path="/surfing" render={() => <PhotoList photos={this.state.surfingPhotos}/>} />
@@ -121,7 +123,9 @@ class App extends Component {
                 */}
 
                   <Route component={NotFound} />
+
                   <Route component={RouteError} />
+                  
                 </Switch>
               }
           </div>
