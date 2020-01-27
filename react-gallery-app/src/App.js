@@ -114,8 +114,6 @@ class App extends Component {
                 <h2>Loading, please hold....</h2>
                 :
 
-
-
                 <Switch>
                   <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
                   <Route path="/search" render={() => <PhotoList photos={this.state.photos}/>}  />
@@ -129,7 +127,7 @@ class App extends Component {
 
                   {/* if the route doesn't exist, display NotFoundcomponent */}
 
-                  {/* <Route component={NoResults} /> */}
+                  <Route component={NoResults} />
 
                   <Route component={ NotFound } />
 
