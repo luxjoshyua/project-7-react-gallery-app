@@ -1,6 +1,6 @@
 import React from "react";
 import Photo from "./Photo"; 
-import NotFound from "./NotFound";
+import NotFound from "./NoResults";
 
 // photo component needs to display li and img elements
 /**

@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 import unhappyIcon from "../assets/unhappy-icon.svg"; 
 
-// this function passes in a not found message if there are no photos that match the search
-const NotFound = (props) => (
-    <li className='photo-container not-found unhappy-icon'>
-        <img src={unhappyIcon} alt="Unhappy Icon" className="unhappy-img"/>
-        <h3>That search did not return any results, please try again.</h3>
-  </li>
-);
+const RouteError = (props) => (
+   <div className="error-route-container">
+       <img src={unhappyIcon} alt="Unhappy Icon" className="unhappy-img"/>
+       <h3>
+        Apologies, but that page doesn't seem to exist!
+       </h3>
+   </div>
+); 
 
-export default NotFound; 
+export default RouteError;

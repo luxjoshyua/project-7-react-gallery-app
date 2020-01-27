@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+// External Libraries/Packages
 // import external packages first, then your own files
+import React, { Component } from 'react';
 import apiKey from './config';
 import axios from 'axios';
 import { 
@@ -8,13 +9,15 @@ import {
   Switch
 } from 'react-router-dom';
 
-
+// CSS
 import './App.css';
+
+// Components
 import Nav from './components/NavBar';
-import NotFound from './components/NotFound';
 import PhotoList from './components/PhotoList'; 
 import SearchForm from './components/SearchForm';
-import RouteError from './components/RouteError';
+import NotFound from './components/NotFound';
+import NoResults from './components/NoResults';
 
 
 class App extends Component {
@@ -88,7 +91,8 @@ class App extends Component {
         });
       })
       .catch(error => {
-        console.log('Error fetching and parsing data', error);
+        console.log('Error fetching and parsing data', error); 
+
       });
   }
 
@@ -107,8 +111,11 @@ class App extends Component {
               {     
                 (this.state.loading)  
                 ? 
-                <h2>Loading...</h2>
+                <h2>Loading, please hold....</h2>
                 :
+
+
+
                 <Switch>
                   <Route exact path="/" render={() => <PhotoList photos={this.state.photos}/>}  />
                   <Route path="/search" render={() => <PhotoList photos={this.state.photos}/>}  />
@@ -117,17 +124,18 @@ class App extends Component {
                   <Route path="/computers" render={() => <PhotoList photos={this.state.computerPhotos}/>} />
                   <Route path="/surfing" render={() => <PhotoList photos={this.state.surfingPhotos}/>} />
 
-                {/* this is wrong here: there are two error components:
-                    1. 404Error is when someone enters a route that doesn't exist
-                    2. NotFound is when someone enters a search query that doesn't return any results
-                */}
 
-                  <Route component={NotFound} />
+                  {/* if the search doesn't return any results, display NoResults component  */}
 
-                  <Route component={RouteError} />
-                  
+                  {/* if the route doesn't exist, display NotFoundcomponent */}
+
+                  {/* <Route component={NoResults} /> */}
+
+                  <Route component={ NotFound } />
+
                 </Switch>
               }
+
           </div>
       </BrowserRouter>
     );

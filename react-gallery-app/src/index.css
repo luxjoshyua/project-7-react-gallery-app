@@ -83,7 +83,6 @@ input::placeholder {
 .main-nav a:hover {
   transform: scale(1.2);
   transition: .2s ease-in-out;
-
 }
 
 .photo-container ul {
@@ -117,6 +116,10 @@ input::placeholder {
 
 .photo-container .not-found {
   width: 100%;
+}
+
+li.photo-container.not-found.unhappy-icon {
+  border: none;
 }
 
 
