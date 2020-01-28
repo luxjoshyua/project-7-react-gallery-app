@@ -2,7 +2,6 @@ import React from "react";
 import Photo from "./Photo"; 
 import NotFound from "./NoResults";
 
-// photo component needs to display li and img elements
 /**
  * ==== Build your app components ====
  * PhotoList component is what holds each photo fetched in the Photo component
@@ -29,6 +28,5 @@ if (results.length > 0) {
         </div>
     )
 };
-
 
 export default PhotoList; 

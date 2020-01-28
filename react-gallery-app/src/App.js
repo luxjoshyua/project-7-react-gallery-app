@@ -77,8 +77,8 @@ class App extends Component {
         });
   }
 
+  // perform search automatically so when page loads, images are prepopulated
   performSearch = (query = 'dogs') => {
-    
     this.setState({
       loading:true
     })
@@ -104,7 +104,6 @@ class App extends Component {
           <div className="Container">
             <Route render={(props) => <SearchForm onSearch={this.performSearch} loading={this.state.loading} /> } />
 
-            {/* Navigation below the SearchForm */}
             <Nav onSearch={this.performSearch} />
               {     
                 (this.state.loading)  

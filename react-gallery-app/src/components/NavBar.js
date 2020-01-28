@@ -1,8 +1,5 @@
  import React from "react";
-import {
-    NavLink,
-    // useParams,
-} from "react-router-dom"; 
+import { NavLink } from "react-router-dom"; 
 
 const NavBar = (props) => {
     return (
