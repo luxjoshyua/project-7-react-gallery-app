@@ -1,7 +1,7 @@
 import React from 'react';
 import unhappyIcon from "../assets/unhappy-icon.svg"; 
 
-const RouteError = (props) => (
+const FourOhFour = (props) => (
    <div className="error-route-container">
        <img src={unhappyIcon} alt="Unhappy Icon" className="unhappy-img"/>
        <h3>
@@ -10,4 +10,4 @@ const RouteError = (props) => (
    </div>
 ); 
 
-export default RouteError;
+export default FourOhFour;
