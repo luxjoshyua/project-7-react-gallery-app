@@ -106,6 +106,7 @@ input::placeholder {
   transform: scale(1.25);
   /* transition: transform 1.25s; */
   transition: transform .5s;
+  height: 100%;
 }
 
 .photo-container li:hover img {
