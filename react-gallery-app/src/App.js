@@ -92,11 +92,9 @@ class App extends Component {
       })
       .catch(error => {
         console.log('Error fetching and parsing data', error); 
-
       });
   }
 
- 
   // render the parent App
   render() {
     return (
