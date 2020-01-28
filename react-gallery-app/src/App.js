@@ -116,7 +116,6 @@ class App extends Component {
                   <Route path="/dogs" render={() => <PhotoList photos={this.state.dogPhotos}/>}/>
                   <Route path="/computers" render={() => <PhotoList photos={this.state.computerPhotos}/>} />
                   <Route path="/surfing" render={() => <PhotoList photos={this.state.surfingPhotos}/>} />
-                  <Route component={NoResults} />
                   <Route component={FourOhFour } />
                 </Switch>
               }
