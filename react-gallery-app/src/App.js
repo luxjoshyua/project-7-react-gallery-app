@@ -97,6 +97,23 @@ class App extends Component {
 
   // render the parent App
   render() {
+    if (apiKey.length <= 4) {
+      return (
+        <div className="api-container">
+           <h2>
+              Oh no, you need an API key!
+            </h2>
+            <h3>
+              Steps to setup an API key
+              </h3>
+              <ul>
+                <ol>1. Go to <a href="https://www.flickr.com/services/api/">flickr</a> and setup an api key </ol>
+                <ol>2. Enter your api key into the config.js file</ol>
+                <ol>3. Once saved in the config.js file, app will run!</ol>
+              </ul>
+        </div>
+      )
+    }
     return (
       <BrowserRouter>
           <div className="Container">
